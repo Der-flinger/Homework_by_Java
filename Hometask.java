@@ -9,11 +9,14 @@ import java.util.Random;
 * 4. Найти все некратные n числа в диапазоне от Short.MIN_VALUE до i и
 * сохранить в массив m2
 */
-public class Hometask {
-    public static void main(String[] args) {
+public class Hometask 
+{
+    public static void main(String[] args) 
+    {
         int i = get_Random_Num(0, 2000);
         System.out.println(i);
-
+        int n = get_Most_Significant_bit(i);
+        System.out.println(n);
     }
 
     // Метод первого задания
@@ -24,5 +27,16 @@ public class Hometask {
         return random.nextInt(min_num, max_num);
     }
 
-
+    // Метод второго задания
+    static int get_Most_Significant_bit (int num) 
+    {
+        int count = 0;
+        while (num >= 2) 
+        {
+            count++;
+            num /= 2;
+        }
+        System.out.print("Номер старшего бита = ");
+        return count;
+    }
 }
