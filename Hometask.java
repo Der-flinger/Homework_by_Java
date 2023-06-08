@@ -1,5 +1,6 @@
 import java.util.Random;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 /*
 * Первый семинар.
 * 1. Выбросить случайное целое число в диапазоне от 0 до 2000 и сохранить в i
@@ -17,6 +18,8 @@ public class Hometask
         System.out.println(i);
         int n = get_Most_Significant_bit(i);
         System.out.println(n);
+        int[] m1 = get_divisible_array(i, n);
+        // System.out.println(Arrays.toString(m1));
     }
 
     // Метод первого задания
@@ -38,5 +41,28 @@ public class Hometask
         }
         System.out.print("Номер старшего бита = ");
         return count;
+    }
+
+    // Метод третьего задания
+    static int[] get_divisible_array (int num, int bit_num)
+    {
+        int lenght = 0;
+        for (int j = num; j < Short.MAX_VALUE; j++) 
+        {
+            if (j % bit_num == 0) lenght++;
+        }
+        System.out.printf("Длина массива чисел, кратных n равно --> %d", lenght);
+
+        int[] array = new int[lenght];
+        int index = 0;
+        for (int j = num; j < Short.MAX_VALUE; j++) 
+        {
+            if (j % bit_num == 0) 
+            {
+                array[index] = j;
+                index++;
+            }
+        }
+        return array;
     }
 }
