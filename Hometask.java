@@ -20,9 +20,12 @@ public class Hometask
         System.out.println(n);
         int[] m1 = get_divisible_array(i, n);
         // System.out.println(Arrays.toString(m1));
+        System.out.println();
+        int[] m2 = get_non_divisible_array(i, n);
+        // System.out.println(Arrays.toString(m2));
     }
 
-    // Метод первого задания
+    // 1. Метод первого задания
     static int get_Random_Num (int min_num, int max_num)
     {
         Random random = new Random();
@@ -30,7 +33,7 @@ public class Hometask
         return random.nextInt(min_num, max_num);
     }
 
-    // Метод второго задания
+    // 2. Метод второго задания
     static int get_Most_Significant_bit (int num) 
     {
         int count = 0;
@@ -43,7 +46,7 @@ public class Hometask
         return count;
     }
 
-    // Метод третьего задания
+    // 3. Метод третьего задания
     static int[] get_divisible_array (int num, int bit_num)
     {
         int lenght = 0;
@@ -59,6 +62,26 @@ public class Hometask
         {
             if (j % bit_num == 0) 
             {
+                array[index] = j;
+                index++;
+            }
+        }
+        return array;
+    }
+
+    // 4. Метод четвортого задания
+    static int[] get_non_divisible_array(int num, int bit_num) {
+        int lenght = 0;
+        for (int j = Short.MIN_VALUE; j < num; j++) {
+            if (j % bit_num != 0)
+                lenght++;
+        }
+        System.out.printf("Длина массива чисел, не кратных n равно --> %d", lenght);
+
+        int[] array = new int[lenght];
+        int index = 0;
+        for (int j = Short.MIN_VALUE; j < num; j++) {
+            if (j % bit_num != 0) {
                 array[index] = j;
                 index++;
             }
