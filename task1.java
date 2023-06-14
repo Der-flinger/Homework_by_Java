@@ -28,11 +28,11 @@ public class task1 {
             // System.out.println(s);
             String[] lst = s.split(",");
             int i = 0;
-            if (lst[i].contains("null")) i++;
-            System.out.printf("%s ", lst[i]);
-            for (int j = i + 1; j < lst.length; j++) {
-                if (lst[j].contains("null")) continue;
-                System.out.printf("and " + "%s ", lst[j]);
+            if (lst[i].contains("null")) i++;               // Если условие сработало, то идем дальше и ищем первое появления null
+            System.out.printf("%s ", lst[i]);           // Если условие не сработало то выводим на экран первый элемент без null
+            for (int j = i + 1; j < lst.length; j++) {      // После вывода на экран первого элемента выводим все остальное, что требуется
+                if (lst[j].contains("null")) continue;      // Если строка содержит null то пропускаем цикл
+                System.out.printf("and " + "%s ", lst[j]);      // Выводим на экран ответ через and
             }
         }
             catch (Exception e) {
