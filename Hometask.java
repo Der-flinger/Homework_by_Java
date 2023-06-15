@@ -25,10 +25,23 @@ public class Hometask {
         Scanner s3 = new Scanner(System.in);
         int maxValue = s3.nextInt();
 
-        ArrayList<Integer> nums = createArray(length, minValue, maxValue);
+        System.out.println("---".repeat(10));
+        ArrayList<Integer> nums = createArray(length, minValue, maxValue);      // Создаем список с нужными параметрами
         System.out.println(nums);
-        ArrayList<Integer> unevenNums = getArrayWithoutEven(nums);
+
+        System.out.println("-".repeat(10));
+        ArrayList<Integer> unevenNums = getArrayWithoutEven(nums);             // Получаем список без четных чисел
+        System.out.println("Cписок без четных чисел ниже");
         System.out.println(unevenNums);
+        
+        System.out.println("---".repeat(10));
+        int minNum = getMinElement(nums);
+        System.out.print("Минимальный элемент = ");                             // Получаем минимальный элемент
+        System.out.println(minNum);
+        int maxNum = getMaxElement(nums);                               // Получаем максимальный элемент
+        System.out.print("Максимальный элемент = ");
+        System.out.println(maxNum);
+
     }
     public static ArrayList<Integer> createArray(int size, int minValue, int maxValue) {
         ArrayList<Integer> array = new ArrayList<>();
@@ -36,6 +49,7 @@ public class Hometask {
             array.add(new Random().nextInt(minValue, maxValue));
         }
         return array;
+
     }
     public static ArrayList<Integer> getArrayWithoutEven(ArrayList<Integer> array) {
         for (int i = 0; i < array.size(); i++) {
@@ -43,5 +57,21 @@ public class Hometask {
             array.removeIf(el -> el % 2 == 0);
         }
         return array;
+
+    }
+    public static int getMinElement(ArrayList<Integer> array) {             // Метод взвращает минимальный элемент
+        int min = array.get(0);
+        for (Integer integer : array) {
+            if (min > integer) min = integer;
+        }
+        return min;
+
+    }
+    public static int getMaxElement(ArrayList<Integer> array) {             // Метод взвращает максимальный элемент
+        int max = array.get(0);
+        for (Integer integer : array) {
+            if (max < integer) max = integer;
+        }
+        return max;
     }
 }
