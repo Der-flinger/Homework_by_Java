@@ -25,22 +25,28 @@ public class Hometask {
         Scanner s3 = new Scanner(System.in);
         int maxValue = s3.nextInt();
 
-        System.out.println("---".repeat(10));
+        System.out.println("-----".repeat(10));
         ArrayList<Integer> nums = createArray(length, minValue, maxValue);      // Создаем список с нужными параметрами
         System.out.println(nums);
-
-        System.out.println("-".repeat(10));
-        ArrayList<Integer> unevenNums = getArrayWithoutEven(nums);             // Получаем список без четных чисел
+        ArrayList<Integer> numsCopy = new ArrayList<>();         // Создаем копию основного списка для удаления четных чисел без изменения основного списка
+        numsCopy.addAll(nums);
+        
+        System.out.println("-----".repeat(10));
+        ArrayList<Integer> unevenNums = getArrayWithoutEven(numsCopy);             // Получаем список без четных чисел
         System.out.println("Cписок без четных чисел ниже");
         System.out.println(unevenNums);
+        // System.out.println(nums);
         
-        System.out.println("---".repeat(10));
+        System.out.println("-----".repeat(10));
         int minNum = getMinElement(nums);
         System.out.print("Минимальный элемент = ");                             // Получаем минимальный элемент
         System.out.println(minNum);
-        int maxNum = getMaxElement(nums);                               // Получаем максимальный элемент
+        int maxNum = getMaxElement(nums);                                         // Получаем максимальный элемент
         System.out.print("Максимальный элемент = ");
         System.out.println(maxNum);
+        float avgValue = getAvarageValue(nums);                             // Получаем среднее значение
+        System.out.print("Среднее значение в списке = ");
+        System.out.println(avgValue);
 
     }
     public static ArrayList<Integer> createArray(int size, int minValue, int maxValue) {
@@ -73,5 +79,14 @@ public class Hometask {
             if (max < integer) max = integer;
         }
         return max;
+    }
+    public static float getAvarageValue(ArrayList<Integer> array) {        // Метод возвращает среднее значение элементов в списке
+        int sum = 0;
+        for (Integer integer : array) {
+            sum += integer;
+        }
+        // System.out.println(sum);
+        float avg = sum / array.size();                         // Сумму всех элементов делим на длину списка для нахождения среднего значения
+        return avg;
     }
 }
