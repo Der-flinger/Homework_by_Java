@@ -23,16 +23,15 @@ public class programm {
         System.out.println(list.isEmpty());
         list.delete(16);
         list.printSet();
-        list.getElement(2);
+        list.getElement(4);
     }
 }
 
 /**
- * newSet
+ * Класс, функционирующий как hashSet
  */
 class newSet {
-    ArrayList<Integer> set = new ArrayList<>();
-
+    
     HashMap<Integer, Object> ownSet= new HashMap<>();
     private static final Object OBJECT = new Object();
     
@@ -43,7 +42,7 @@ class newSet {
     public void add(int element) {
         ownSet.put(element, OBJECT);
     }
-
+    
     /**
      * метод выводит на экран все элементы нашей Hash-коллекции в одну строку
      */
@@ -53,10 +52,11 @@ class newSet {
         }
         System.out.println();
     }
-
+    
     public void delete(int element) {
         ownSet.remove(element);
     }
+
     /**
      * Проверяет пустая коллекция или нет
      * @return true, если коллекция пустая
@@ -64,16 +64,23 @@ class newSet {
     public boolean isEmpty() {
         return ownSet.isEmpty();
     }
+
     /**
      * Возвращает элемент, расположенный по введенному индексу
      * @param index индекс элемента
      */
-    public void getElement(int index) {
+    public void getElement(int index)
+    {
+        ArrayList<Integer> set = new ArrayList<>();
         int i = 0;
         for (int element : ownSet.keySet()) {
             set.add(i, element);
             i++;
         }
-        System.out.println(set.get(index));
+        if(index < set.size() && index > -1) System.out.println(set.get(index));
+        else {
+            System.out.print("Индекс за пределами размеров коллекции, поменяйте значение");
+            // getElement(index);
+        }
     }
 }
