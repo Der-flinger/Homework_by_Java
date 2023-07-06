@@ -11,12 +11,16 @@ import java.util.HashMap;
 public class programm {
 
     public static void main(String[] args) {
+
         var list = new newSet();
+
+        System.out.println(list.isEmpty());
         list.add(12);
         list.add(16);
         list.add(-1);
         list.add(3321);
         list.printSet();
+        System.out.println(list.isEmpty());
         list.delete(16);
         list.printSet();
         list.getElement(2);
@@ -32,10 +36,17 @@ class newSet {
     HashMap<Integer, Object> ownSet= new HashMap<>();
     private static final Object OBJECT = new Object();
     
+    /**
+     * Добавляет в нашу коллекцию Hash элемент типа int
+     * @param element элемент типа int
+     */
     public void add(int element) {
         ownSet.put(element, OBJECT);
     }
 
+    /**
+     * метод выводит на экран все элементы нашей Hash-коллекции в одну строку
+     */
     public void printSet(){
         for (int element : ownSet.keySet()) {
             System.out.printf("%s ", element);
@@ -46,11 +57,17 @@ class newSet {
     public void delete(int element) {
         ownSet.remove(element);
     }
-
+    /**
+     * Проверяет пустая коллекция или нет
+     * @return true, если коллекция пустая
+     */
     public boolean isEmpty() {
         return ownSet.isEmpty();
     }
-
+    /**
+     * Возвращает элемент, расположенный по введенному индексу
+     * @param index индекс элемента
+     */
     public void getElement(int index) {
         int i = 0;
         for (int element : ownSet.keySet()) {
